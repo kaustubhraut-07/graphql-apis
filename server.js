@@ -5,7 +5,9 @@ import {dbConnect} from './config/dbconnection.js';
 import {User} from './Models/User.js';
 import { getAllUsers } from './controllers/user.controllers.js';
 import { getAllTasks } from './controllers/tasks.controllers.js';
-
+import { getTaskById } from './controllers/tasks.controllers.js';
+import dotenv from 'dotenv';
+dotenv.config();
 dbConnect();
 const server = new ApolloServer({
     typeDefs: schema,
@@ -13,7 +15,9 @@ const server = new ApolloServer({
         Query: {
             hello: () => 'Hello, World!',
             users : getAllUsers,
-            tasks : getAllTasks
+            tasks : getAllTasks,
+            task: (parent, args) => getTaskById(parent, args),
+            
         },
     },
 });
