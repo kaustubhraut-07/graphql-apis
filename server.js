@@ -4,6 +4,7 @@ import { schema } from './graphql/schema/schema.js';
 import {dbConnect} from './config/dbconnection.js';
 import {User} from './Models/User.js';
 import { getAllUsers } from './controllers/user.controllers.js';
+import { getAllTasks } from './controllers/tasks.controllers.js';
 
 dbConnect();
 const server = new ApolloServer({
@@ -12,6 +13,7 @@ const server = new ApolloServer({
         Query: {
             hello: () => 'Hello, World!',
             users : getAllUsers,
+            tasks : getAllTasks
         },
     },
 });

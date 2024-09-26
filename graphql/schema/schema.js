@@ -14,9 +14,21 @@ type User{
 
 }
 
+type Tasks{
+    name:  String!,
+    description:  String!,    
+    completed: Boolean!,
+    user: String!,
+    date: String!,
+    createdAt: String!,
+    updatedAt: String!
+    
+}
+
 type Query {
     hello: String,
-    users:[User]
+    users:[User],
+    tasks:[Tasks]
     
 }
 
