@@ -30,8 +30,13 @@ type Query {
     users:[User],
     tasks:[Tasks]
     task(id : ID!): Tasks ,
-    usertasks(id : ID!): [Tasks]
+    usertasks(id : ID!): [Tasks]   
     
+}
+
+type Mutation {
+    createUser(name: String!, email: String!, password: String!, avatar: String!): User
+    createTask(name: String!, description: String!, completed: Boolean!, user: String!): Tasks
 }
 
 `
