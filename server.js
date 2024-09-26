@@ -17,7 +17,8 @@ const server = new ApolloServer({
             users : getAllUsers,
             tasks : getAllTasks,
             task: (parent, args) => getTaskById(parent, args),
-            
+            usertasks : (parent, args) => getTaskofUser(parent, args),
+
         },
     },
 });

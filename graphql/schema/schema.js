@@ -29,7 +29,8 @@ type Query {
     hello: String,
     users:[User],
     tasks:[Tasks]
-    task(id : ID!): Tasks 
+    task(id : ID!): Tasks ,
+    usertasks(id : ID!): [Tasks]
     
 }
 

@@ -6,6 +6,12 @@ export const getAllTasks = async()=>{
 
 export const getTaskById = async (parent, args) => {
     // console.log(args, "args");
-    const task = await Task.findById(args.id); // Change this line
+    const task = await Task.findById(args.id); 
     return task;
+}
+
+export const getTaskofUser = async(parent, args)=>{
+
+    const tasks = await Task.find({user: args.id});
+    return tasks
 }
