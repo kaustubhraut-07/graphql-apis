@@ -7,6 +7,7 @@ import { getAllUsers } from './controllers/user.controllers.js';
 import { getAllTasks } from './controllers/tasks.controllers.js';
 import { getTaskById } from './controllers/tasks.controllers.js';
 import { createUser } from './controllers/user.controllers.js';
+import { createTask } from './controllers/tasks.controllers.js';
 import dotenv from 'dotenv';
 dotenv.config();
 dbConnect();
@@ -22,7 +23,8 @@ const server = new ApolloServer({
 
         },
         Mutation:{
-            createUser: (parent , args)=> createUser(parent , args)
+            createUser: (parent , args)=> createUser(parent , args),
+            createTask : (parent , args)=> createTask(parent , args),
         }
     },
 });
